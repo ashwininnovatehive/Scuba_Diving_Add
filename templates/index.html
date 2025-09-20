@@ -1,0 +1,2497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blue Adventures - Premier Scuba Diving & Water Sports</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Professional color palette */
+      :root {
+        --primary-blue: #1e3a8a;
+        --secondary-blue: #3b82f6;
+        --accent-teal: #0891b2;
+        --ocean-blue: #0c4a6e;
+        --light-blue: #e0f2fe;
+        --navy: #1e293b;
+        --charcoal: #374151;
+        --warm-white: #fefefe;
+        --off-white: #f8fafc;
+        --gold: #f59e0b;
+        --success-green: #059669;
+        --text-dark: #111;
+        --text-medium: #333;
+        --text-light: #6b7280;
+        --text-white: #ffffff;
+        --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --shadow-large: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        --border-radius: 12px;
+        --border-radius-lg: 16px;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        overflow-x: hidden;
+        background: var(--warm-white);
+      }
+
+      /* Professional navigation */
+      nav {
+        position: fixed;
+        top: 15px; /* Raised navbar slightly */
+        background: rgba(255, 255, 255, 0.9); /* Increased opacity */
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50px;
+        padding: 0.1rem 1rem; /* REDUCED NAVBAR PADDING */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow-medium);
+        width: calc(100% - 40px);
+        max-width: 1500px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-sizing: border-box;
+      }
+
+      nav.scrolled {
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: var(--shadow-large);
+        top: 0;
+      }
+
+      /* Elegant logo */
+      nav .logo {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .logo-image {
+        height: 60px; /* REDUCED LOGO HEIGHT */
+        width: auto;
+
+        object-fit: contain;
+        transition: all 0.3s ease;
+      }
+      .logo-text {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary-blue);
+        transition: all 0.3s ease;
+        letter-spacing: -0.5px;
+      }
+
+      nav .logo:hover .logo-text {
+        color: var(--accent-teal);
+      }
+
+      nav .logo:hover .logo-image {
+        transform: scale(1.05);
+      }
+
+      /* Clean navigation menu */
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      nav ul li a {
+        color: var(--text-dark);
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.6rem 1rem; /* Adjusted padding */
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        font-size: 1.2rem;
+        position: relative;
+      }
+
+      nav ul li a:hover {
+        background: var(--light-blue);
+        color: var(--primary-blue);
+        transform: translateY(-1px);
+      }
+
+      nav ul li a i {
+        margin-right: 0.5rem;
+        font-size: 0.8rem;
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 0.8rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.9);
+        border: 2px solid var(--primary-blue);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        position: relative;
+        z-index: 1001;
+        animation: hamburgerPulse 2s infinite;
+      }
+
+      @keyframes hamburgerPulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.02);
+        }
+      }
+
+      .hamburger.active {
+        animation: none;
+      }
+
+      .hamburger:hover {
+        background: rgba(255, 255, 255, 1);
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .hamburger:active {
+        transform: scale(0.95);
+      }
+
+      .bar {
+        width: 25px;
+        height: 3px;
+        background: var(--primary-blue);
+        margin: 3px 0;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      /* Background system (preserved as requested) */
+      .background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+      }
+
+      .background-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .background-layer.active {
+        opacity: 1;
+      }
+
+      /* Professional overlay */
+      section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 4rem 2rem;
+        box-sizing: border-box;
+      }
+
+      /* Add top padding to the first section to account for fixed nav */
+      #home {
+        padding-top: 100px;
+      }
+
+      /* Hero section */
+      .hero {
+        text-align: left;
+        padding-top: 10rem;
+        justify-content: flex-start;
+      }
+
+      .hero-content {
+        max-width: 900px;
+        margin-left: 2%;
+        margin-right: auto;
+        animation: fadeInUp 1.2s ease-out;
+        padding: 0 2rem;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Elegant typography */
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(4rem, 12vw, 7rem);
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+        color: var(--primary-blue);
+        letter-spacing: -2px;
+      }
+
+      .hero h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        margin-bottom: 2rem;
+        font-weight: 500;
+        color: var(--accent-teal);
+        font-style: italic;
+        text-align: left;
+      }
+
+      .hero p {
+        font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+        margin-bottom: 3rem;
+        font-weight: 400;
+        line-height: 1.8;
+        color: var(--text-dark); /* UPDATED: Improved contrast */
+        max-width: 700px;
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+      }
+
+      /* Professional button */
+      .btn {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: var(--primary-blue);
+        color: var(--text-white);
+        text-decoration: none;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow-medium);
+        border: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        min-width: 120px;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--accent-teal);
+        transition: left 0.3s ease;
+        z-index: -1;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-large);
+      }
+
+      .btn:hover::before {
+        left: 0;
+      }
+
+      .btn i {
+        margin-right: 0.5rem;
+      }
+
+      /* Professional content boxes */
+      .content-box {
+        background: rgba(
+          255,
+          255,
+          255,
+          0.9
+        ); /* UPDATED: Increased visibility */
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: var(--border-radius-lg);
+        padding: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        box-shadow: var(--shadow-large);
+        transition: all 0.3s ease;
+      }
+
+      .content-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.25);
+      }
+
+      /* Section headings */
+      section h2 {
+        font-family: "Playfair Display", serif;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 700;
+        color: var(--primary-blue);
+        position: relative;
+        letter-spacing: -1px;
+      }
+
+      section h2::after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--gold);
+        border-radius: 2px;
+      }
+
+      /* Professional card grid */
+      .package-cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(350px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .card.center {
+        grid-column: 2 / 3;
+      }
+
+      .card {
+        background: rgba(
+          255,
+          255,
+          255,
+          0.9
+        ); /* UPDATED: Increased visibility */
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: var(--border-radius-lg);
+        padding: 1.5rem 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow-medium);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-blue),
+          var(--accent-teal)
+        );
+        border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-large);
+      }
+
+      .card-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: auto;
+        padding-top: 1rem;
+      }
+
+      .card-buttons .btn {
+        flex: 1;
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+        margin-top: 0;
+      }
+
+      .btn.btn-secondary {
+        background: transparent;
+        color: var(--primary-blue);
+        border: 2px solid var(--primary-blue);
+      }
+
+      .btn.btn-secondary:hover {
+        background: var(--primary-blue);
+        color: var(--text-white);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-large);
+      }
+
+      .card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .card .price {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--gold);
+        margin-bottom: 1rem;
+        font-family: "Inter", sans-serif;
+      }
+
+      .card .price span {
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--text-light);
+      }
+
+      .card-details {
+        list-style: none;
+        text-align: left;
+        margin: 0.5rem 0;
+        padding-left: 1rem;
+        color: var(--text-medium);
+        font-size: 0.9rem;
+      }
+
+      .card-details li {
+        margin-bottom: 0.5rem;
+      }
+
+      .package-highlight {
+        font-weight: bold;
+        color: var(--primary-blue);
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Styling for the new wide card, DESKTOP ONLY */
+      @media (min-width: 769px) {
+        .card.card-wide {
+          grid-column: 1 / -1;
+          max-width: 900px;
+          margin: 2rem auto 0;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 1rem 2.5rem;
+        }
+
+        .card-wide .card-details {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1.5rem;
+          text-align: center;
+          padding-left: 0;
+          flex-grow: 0; /* Override flex-grow */
+        }
+      }
+
+      .card ul {
+        list-style: none;
+        margin: 1rem 0;
+      }
+
+      .card ul li {
+        padding: 0.25rem 0;
+        color: var(--text-medium);
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .card ul li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--success-green);
+        font-weight: bold;
+      }
+
+      /* Professional gallery */
+      .gallery-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .gallery-item {
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        transition: opacity 0.5s ease;
+        box-shadow: var(--shadow-medium);
+        position: relative;
+        opacity: 0;
+        display: none;
+      }
+
+      .gallery-item.active {
+        display: block;
+        opacity: 1;
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.03);
+        box-shadow: var(--shadow-large);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      /* Mobile gallery swiper */
+      .gallery-mobile-swiper {
+        display: none;
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      .gallery-mobile-container {
+        display: flex;
+        width: 100%;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-mobile-item {
+        flex: 0 0 100%;
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-medium);
+        position: relative;
+      }
+
+      .gallery-mobile-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .gallery-nav {
+        display: none;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .gallery-nav-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--text-light);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .gallery-nav-dot.active {
+        background: var(--accent-teal);
+        transform: scale(1.2);
+      }
+
+      /* Mobile packages swiper */
+      .packages-mobile-swiper {
+        display: none;
+        position: relative;
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      .packages-mobile-container {
+        display: flex;
+        width: 100%;
+        transition: transform 0.3s ease;
+      }
+
+      .packages-mobile-item {
+        flex: 0 0 100%;
+        padding: 1rem;
+      }
+
+      .packages-nav {
+        display: none;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .packages-nav-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--text-light);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .packages-nav-dot.active {
+        background: var(--accent-teal);
+        transform: scale(1.2);
+      }
+
+      /* Professional review cards */
+      .review-cards {
+        display: flex;
+        justify-content: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        width: 700px;
+      }
+
+      .review-card {
+        background: rgba(
+          255,
+          255,
+          255,
+          0.95
+        ); /* UPDATED: Increased visibility */
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: var(--border-radius-lg);
+        padding: 2rem;
+        box-shadow: var(--shadow-medium);
+        transition: opacity 0.5s ease;
+        position: absolute;
+        opacity: 0;
+        max-width: 600px;
+      }
+
+      .review-card.active {
+        position: relative;
+        opacity: 1;
+      }
+
+      .review-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gold);
+        border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+      }
+
+      .review-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-large);
+      }
+
+      .stars {
+        color: var(--gold);
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .review-card p {
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        color: #07090c;
+        font-size: 1.1rem;
+      }
+
+      .review-card strong {
+        color: var(--primary-blue);
+        font-weight: 600;
+      }
+
+      /* Contact Form / Booking Form */
+      .contact-form {
+        max-width: 700px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: var(--border-radius-lg);
+        padding: 3rem;
+        box-shadow: var(--shadow-large);
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        font-size: 0.95rem;
+      }
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        width: 100%;
+        padding: 1rem;
+        background: var(--warm-white);
+        border: 2px solid #e5e7eb;
+        border-radius: var(--border-radius);
+        color: var(--text-dark);
+        font-family: "Inter", sans-serif;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+      }
+      .form-group input:focus,
+      .form-group textarea:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: var(--accent-teal);
+        box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
+      }
+
+      /* --- NEW Map Section Styles --- */
+      .map-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+      }
+      .map-embed {
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        margin-top: 2rem;
+        box-shadow: var(--shadow-large);
+        border: 2px solid var(--primary-blue);
+      }
+      .map-embed iframe {
+        display: block; /* Removes bottom space under iframe */
+      }
+      .map-info {
+        margin-top: 2rem;
+        font-size: 1.1rem;
+        color: var(--text-medium);
+      }
+      .map-info p {
+        margin-bottom: 0.5rem;
+      }
+      /* --- END Map Section Styles --- */
+
+      /* Professional footer */
+      footer {
+        background: var(--off-white);
+        border-top: 1px solid #e5e7eb;
+        padding: 3rem 2rem;
+        margin-top: 4rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        align-items: start;
+      }
+
+      .footer-section h3 {
+        color: var(--primary-blue);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        font-family: "Playfair Display", serif;
+      }
+
+      .footer-section p,
+      .footer-section a {
+        color: var(--text-medium);
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+        display: block;
+        transition: color 0.3s ease;
+      }
+
+      .footer-section a:hover {
+        color: var(--accent-teal);
+      }
+
+      .footer-section i {
+        margin-right: 0.5rem;
+        width: 16px;
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid #e5e7eb;
+        margin-top: 2rem;
+        color: var(--text-medium);
+      }
+
+      /* --- FLOATING ACTION BUTTONS --- */
+      .floating-action-buttons {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1050;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .fab-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        color: white;
+        font-size: 28px;
+        text-decoration: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .fab-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .fab-call {
+        background-color: var(--secondary-blue); /* Using your theme color */
+      }
+
+      .fab-whatsapp {
+        background-color: #25d366; /* Official WhatsApp Green */
+      }
+      /* --- END FLOATING ACTION BUTTONS --- */
+
+      /* Tablet responsive design */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .logo-image {
+          height: 70px; /* Tablet logo size */
+        }
+
+        nav {
+          padding: 1rem 1.5rem;
+        }
+
+        nav .logo {
+          font-size: 1.6rem;
+        }
+
+        nav ul li a {
+          padding: 0.7rem 1rem;
+          font-size: 0.85rem;
+        }
+
+        .hero-content {
+          margin-left: 5%;
+          margin-right: 5%;
+        }
+
+        .package-cards {
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 1.5rem;
+        }
+      }
+
+      /* Mobile responsive design */
+      @media (max-width: 768px) {
+        .logo-image {
+          height: 65px; /* Mobile logo size */
+        }
+
+        nav {
+          top: 0;
+          width: 100%;
+          border-radius: 0;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          min-height: 70px;
+          padding: 0.5rem 1rem;
+        }
+
+        body {
+          padding-top: 70px;
+        }
+
+        .nav-menu {
+          position: fixed;
+          top: 70px;
+          /* left: 0; */
+          right: 0;
+          width: 50%;
+          background: var(--warm-white);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+          transform: translateY(-100%);
+          opacity: 0;
+          visibility: hidden;
+          transition: transform 0.3s ease, opacity 0.3s ease;
+          z-index: 999;
+          flex-direction: column;
+          padding: 1rem 0;
+          gap: 0;
+          list-style: none;
+          max-height: calc(100vh - 70px);
+          overflow-y: auto;
+        }
+
+        .nav-menu.active {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .nav-menu li {
+          width: 100%;
+          text-align: center;
+        }
+
+        .nav-menu li a {
+          display: block;
+          padding: 1.2rem 2rem;
+          width: 100%;
+          border-radius: 0;
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--primary-blue);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .nav-menu li a:hover {
+          background: var(--light-blue);
+          color: var(--accent-teal);
+        }
+
+        .nav-menu li:not(:last-child) {
+          border-bottom: 1px solid #e5e7eb;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+          transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+          transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        nav .logo {
+          font-size: 1.5rem;
+        }
+
+        section {
+          padding: 3rem 1rem;
+        }
+
+        .hero {
+          padding-top: 2rem;
+        }
+
+        .hero-content {
+          margin: 0 auto;
+          max-width: 100%;
+          padding: 0 1rem;
+          text-align: left;
+        }
+
+        .hero p {
+          text-align: center;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        /* Ensure hero content is centered */
+        .hero-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .hero h1,
+        .hero h2 {
+          text-align: center;
+        }
+
+        /* Center all section content */
+        section > div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        section h2 {
+          text-align: center;
+          margin: 0 auto 2rem auto;
+        }
+
+        .content-box,
+        .contact-form {
+          padding: 1.5rem;
+          text-align: center;
+          margin: 0 auto;
+        }
+
+        /* About Us section mobile centering */
+        #about .content-box p {
+          text-align: center;
+        }
+
+        #about .content-box div[style*="display: grid"] {
+          display: flex !important;
+          flex-direction: column;
+          gap: 2rem;
+          align-items: center;
+        }
+
+        #about .content-box div[style*="text-align: center"] {
+          text-align: center;
+          width: 100%;
+          max-width: 300px;
+        }
+
+        #about .content-box div[style*="text-align: center"] i {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+        }
+
+        #about .content-box div[style*="text-align: center"] h3 {
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
+        }
+
+        #about .content-box div[style*="text-align: center"] p {
+          font-size: 0.9rem;
+          line-height: 1.5;
+        }
+
+        .package-cards,
+        .gallery-grid,
+        .review-cards {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          justify-items: center;
+        }
+
+        .package-cards .card,
+        .gallery-grid .gallery-item,
+        .review-cards .review-card {
+          width: 100%;
+          max-width: 350px;
+          margin: 0 auto;
+        }
+
+        /* Ensure all cards are centered */
+        .card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .card h3,
+        .card .price,
+        .card p,
+        .card ul {
+          text-align: center;
+        }
+
+        .card ul li {
+          text-align: left;
+        }
+
+        .card-buttons {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .card.center {
+          grid-column: span 1;
+        }
+
+        .package-cards {
+          display: none;
+        }
+
+        .packages-mobile-swiper {
+          display: block;
+        }
+
+        .packages-nav {
+          display: flex;
+        }
+
+        .gallery-grid {
+          display: none;
+        }
+
+        .gallery-mobile-swiper {
+          display: block;
+        }
+
+        .gallery-nav {
+          display: flex;
+        }
+
+        .review-cards {
+          width: 100%;
+        }
+
+        .review-card {
+          max-width: 100%;
+        }
+
+        .contact-info {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .btn {
+          padding: 1rem 2rem;
+          font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+          font-size: 1rem;
+          padding: 1rem;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          text-align: center;
+        }
+
+        .footer-section a,
+        .footer-section p {
+          justify-content: center;
+        }
+
+        /* Responsive Floating Buttons */
+        .floating-action-buttons {
+          bottom: 20px;
+          right: 20px;
+        }
+        .fab-button {
+          width: 55px;
+          height: 55px;
+          font-size: 26px;
+        }
+      }
+
+      /* Small mobile responsive design */
+      @media (max-width: 480px) {
+        .logo-image {
+          height: 55px; /* Small mobile logo size */
+        }
+
+        nav {
+          padding: 0.5rem 1rem;
+        }
+
+        .hamburger {
+          padding: 0.6rem;
+        }
+
+        .bar {
+          width: 22px;
+          height: 3px;
+          margin: 2.5px 0;
+        }
+
+        .nav-menu li a {
+          padding: 1rem 1.5rem;
+          font-size: 1rem;
+        }
+
+        nav .logo {
+          font-size: 1.3rem;
+        }
+
+        .hero {
+          padding-top: 1rem;
+        }
+
+        .hero-content {
+          padding: 0 0.5rem;
+        }
+
+        .hero h1 {
+          font-size: clamp(2.2rem, 10vw, 3.5rem);
+        }
+
+        .hero h2 {
+          font-size: clamp(1.1rem, 5vw, 1.5rem);
+        }
+
+        .hero p {
+          font-size: clamp(0.9rem, 4vw, 1rem);
+        }
+
+        .content-box,
+        .contact-form {
+          padding: 1.5rem 1rem;
+        }
+
+        .card {
+          padding: 2rem 1.5rem;
+        }
+
+        .card h3 {
+          font-size: 1.3rem;
+        }
+
+        .card .price {
+          font-size: 2rem;
+        }
+
+        .gallery-item img,
+        .gallery-mobile-item img {
+          height: 200px;
+        }
+
+        .review-card {
+          padding: 1.5rem;
+        }
+
+        .btn {
+          padding: 0.9rem 1.5rem;
+          font-size: 0.95rem;
+        }
+      }
+
+      /* Smooth animations */
+      .fade-in {
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-container">
+      <div
+        class="background-layer"
+        data-bg="url('static/1.jpg')"
+        style="background-image: url('static/1.jpg')"
+      ></div>
+      <div
+        class="background-layer"
+        data-bg="url('static/2.jpg')"
+        style="background-image: url('static/2.jpg')"
+      ></div>
+      <div
+        class="background-layer"
+        data-bg="url('static/3.jpg')"
+        style="background-image: url('static/3.jpg')"
+      ></div>
+      <div
+        class="background-layer"
+        data-bg="url('static/4.jpg')"
+        style="background-image: url('static/4.jpg')"
+      ></div>
+      <div
+        class="background-layer"
+        data-bg="url('static/5.jpg')"
+        style="background-image: url('static/5.jpg')"
+      ></div>
+      <div
+        class="background-layer"
+        data-bg="url('static/6.jpg')"
+        style="background-image: url('static/6.jpg')"
+      ></div>
+      <div
+        class="background-layer"
+        data-bg="url('static/7.jpg')"
+        style="background-image: url('static/7.jpg')"
+      ></div>
+    </div>
+
+    <nav id="navbar">
+      <a href="#home" class="logo">
+        <img
+          src="static\Scuba_Logo.png"
+          alt="Blue Adventures Logo"
+          class="logo-image"
+        />
+        <span class="logo-text">Blue Adventures</span>
+      </a>
+      <ul class="nav-menu">
+        <li>
+          <a href="#home"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+        </li>
+        <li>
+          <a href="#packages"><i class="fas fa-gift"></i> Packages</a>
+        </li>
+        <li>
+          <a href="#gallery"><i class="fas fa-images"></i> Gallery</a>
+        </li>
+        <li>
+          <a href="#reviews"><i class="fas fa-star"></i> Reviews</a>
+        </li>
+        <li>
+          <a href="#book"><i class="fas fa-calendar-check"></i> Book</a>
+        </li>
+        <li>
+          <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Blue Adventures</h1>
+        <h2>Discover the Ocean's Wonders</h2>
+        <p>
+          Experience world-class scuba diving and water sports in Malvan's
+          pristine waters. Our certified instructors and premium equipment
+          ensure safe, unforgettable underwater adventures for divers of all
+          levels.
+        </p>
+        <a href="#book" class="btn"><i class="fas fa-water"></i> Book Now</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="content-box">
+        <h2>About Blue Adventures</h2>
+        <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem">
+          Welcome to Blue Adventures, Maharashtra's premier destination for
+          scuba diving and marine exploration. Located in the stunning coastal
+          town of Malvan, we've been creating extraordinary underwater
+          experiences for over a decade.
+        </p>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 1rem;
+          "
+        >
+          <div style="text-align: center; padding: 1.5rem">
+            <i
+              class="fas fa-certificate"
+              style="font-size: 3rem; color: var(--gold); margin-bottom: 1rem"
+            ></i>
+            <h3
+              style="
+                color: var(--primary-blue);
+                margin-bottom: 1rem;
+                font-family: 'Playfair Display', serif;
+              "
+            >
+              PADI Certified
+            </h3>
+            <p style="color: var(--text-medium)">
+              Our professional instructors are internationally certified,
+              ensuring the highest standards of safety and training.
+            </p>
+          </div>
+          <div style="text-align: center; padding: 1.5rem">
+            <i
+              class="fas fa-award"
+              style="
+                font-size: 3rem;
+                color: var(--success-green);
+                margin-bottom: 1rem;
+              "
+            ></i>
+            <h3
+              style="
+                color: var(--primary-blue);
+                margin-bottom: 1rem;
+                font-family: 'Playfair Display', serif;
+              "
+            >
+              10+ Years Experience
+            </h3>
+            <p style="color: var(--text-medium)">
+              A decade of expertise in marine adventures, with thousands of
+              successful dives and satisfied customers.
+            </p>
+          </div>
+          <div style="text-align: center; padding: 1.5rem">
+            <i
+              class="fas fa-shield-alt"
+              style="
+                font-size: 3rem;
+                color: var(--accent-teal);
+                margin-bottom: 1rem;
+              "
+            ></i>
+            <h3
+              style="
+                color: var(--primary-blue);
+                margin-bottom: 1rem;
+                font-family: 'Playfair Display', serif;
+              "
+            >
+              Safety First
+            </h3>
+            <p style="color: var(--text-medium)">
+              State-of-the-art equipment and rigorous safety protocols ensure
+              worry-free underwater exploration.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="packages">
+      <div>
+        <h2>Our Packages</h2>
+        <div class="package-cards">
+          <div class="card">
+            <h3>
+              <i
+                class="fas fa-fish"
+                style="color: var(--accent-teal); margin-right: 0.5rem"
+              ></i>
+              Discover Scuba Diving
+            </h3>
+            <div class="price">₹3099</div>
+            <ul class="card-details">
+              <li><strong>Dives:</strong> 2 (Training + Open Water)</li>
+              <li>
+                <strong>Depth:</strong> 6-8 ft (Training) | 40-45 ft (Open
+                Water)
+              </li>
+              <li><strong>Duration:</strong> ~70 mins total</li>
+              <li><strong>Best For:</strong> First-time divers</li>
+              <li>✓ Full instructor guidance</li>
+            </ul>
+            <p class="package-highlight">Best Beginner Package!</p>
+            <div class="card-buttons">
+              <a href="/discover-scuba-details" class="btn btn-secondary"
+                >Details</a
+              >
+              <a href="#book" class="btn">Book Package</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>
+              <i
+                class="fas fa-tint"
+                style="color: var(--primary-blue); margin-right: 0.5rem"
+              ></i>
+              Average Deep Dive
+            </h3>
+            <div class="price">₹900</div>
+            <ul class="card-details">
+              <li><strong>Depth:</strong> 18–20 ft</li>
+              <li><strong>Duration:</strong> 15 mins</li>
+              <li>
+                <strong>Best For:</strong> Adventurers with some confidence
+              </li>
+              <li>✓ Explore deeper marine life</li>
+            </ul>
+            <div class="card-buttons">
+              <a href="/average-deep-dive-details" class="btn btn-secondary"
+                >Details</a
+              >
+              <a href="#book" class="btn">Book Package</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>
+              <i
+                class="fas fa-swimmer"
+                style="color: var(--gold); margin-right: 0.5rem"
+              ></i>
+              Shallow Scuba Dive
+            </h3>
+            <div class="price">₹400</div>
+            <ul class="card-details">
+              <li><strong>Depth:</strong> 6–8 ft</li>
+              <li><strong>Duration:</strong> 5-6 mins</li>
+              <li><strong>Best For:</strong> A quick underwater taste</li>
+              <li>✓ Guided by instructor</li>
+            </ul>
+            <div class="card-buttons">
+              <a href="/shallow-scuba-dive-details" class="btn btn-secondary"
+                >Details</a
+              >
+              <a href="#book" class="btn">Book Package</a>
+            </div>
+          </div>
+          <div class="card card-wide">
+            <h3>
+              <i
+                class="fas fa-ship"
+                style="color: var(--primary-blue); margin-right: 0.5rem"
+              ></i>
+              Watersports Package
+            </h3>
+            <div class="price">₹700</div>
+            <ul class="card-details">
+              <li>✓ Jet Ski Ride</li>
+              <li>✓ Banana Ride</li>
+              <li>✓ Sleeping Bumper Ride</li>
+              <li>✓ Parasailing</li>
+            </ul>
+            <div class="card-buttons">
+              <a href="/watersports-package-details" class="btn btn-secondary"
+                >Details</a
+              >
+              <a href="#book" class="btn">Book Package</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>
+              <i
+                class="fas fa-layer-group"
+                style="color: var(--accent-teal); margin-right: 0.5rem"
+              ></i>
+              Combo 1
+            </h3>
+            <p
+              style="
+                font-size: 0.9rem;
+                color: var(--text-medium);
+                font-weight: bold;
+              "
+            >
+              Discover Scuba + Water Sports & Parasailing
+            </p>
+            <div class="price">₹3,499 <span>/ person</span></div>
+            <ul class="card-details">
+              <li><strong>Discover Scuba:</strong> 2 dives (40-45 ft)</li>
+              <li>
+                <strong>Water Sports:</strong> Jet Ski, Banana & Bumper Rides
+              </li>
+              <li><strong>Plus:</strong> Parasailing</li>
+            </ul>
+            <p
+              style="
+                font-size: 0.8rem;
+                font-style: italic;
+                color: var(--text-light);
+                padding: 0 0.5rem;
+              "
+            >
+              Best for first-timers who want the complete scuba experience plus
+              surface fun!
+            </p>
+            <a href="#book" class="btn" style="margin-top: auto"
+              >Book Package</a
+            >
+          </div>
+          <div class="card">
+            <h3>
+              <i
+                class="fas fa-layer-group"
+                style="color: var(--primary-blue); margin-right: 0.5rem"
+              ></i>
+              Combo 2
+            </h3>
+            <p
+              style="
+                font-size: 0.9rem;
+                color: var(--text-medium);
+                font-weight: bold;
+              "
+            >
+              Deep Scuba + Water Sports & Parasailing
+            </p>
+            <div class="price">₹1,499 <span>/ person</span></div>
+            <ul class="card-details">
+              <li><strong>Deep Scuba Dive:</strong> 18-20 ft</li>
+              <li>
+                <strong>Water Sports:</strong> Jet Ski, Banana & Bumper Rides
+              </li>
+              <li><strong>Plus:</strong> Parasailing</li>
+            </ul>
+            <p
+              style="
+                font-size: 0.8rem;
+                font-style: italic;
+                color: var(--text-light);
+                padding: 0 0.5rem;
+              "
+            >
+              Perfect for adventurers ready to dive deeper and enjoy thrill
+              rides above water.
+            </p>
+            <a href="#book" class="btn" style="margin-top: auto"
+              >Book Package</a
+            >
+          </div>
+          <div class="card">
+            <h3>
+              <i
+                class="fas fa-layer-group"
+                style="color: var(--gold); margin-right: 0.5rem"
+              ></i>
+              Combo 3
+            </h3>
+            <p
+              style="
+                font-size: 0.9rem;
+                color: var(--text-medium);
+                font-weight: bold;
+              "
+            >
+              Average Scuba + Water Sports & Parasailing
+            </p>
+            <div class="price">₹999 <span>/ person</span></div>
+            <ul class="card-details">
+              <li><strong>Average Scuba Dive:</strong> 6-8 ft</li>
+              <li>
+                <strong>Water Sports:</strong> Jet Ski, Banana & Bumper Rides
+              </li>
+              <li><strong>Plus:</strong> Parasailing</li>
+            </ul>
+            <p
+              style="
+                font-size: 0.8rem;
+                font-style: italic;
+                color: var(--text-light);
+                padding: 0 0.5rem;
+              "
+            >
+              Ideal for beginners & families who want a safe, simple scuba dive
+              with extra fun rides.
+            </p>
+            <a href="#book" class="btn" style="margin-top: auto"
+              >Book Package</a
+            >
+          </div>
+        </div>
+
+        <div class="packages-mobile-swiper">
+          <div class="packages-mobile-container">
+            <div class="packages-mobile-item">
+              <div class="card">
+                <h3>
+                  <i
+                    class="fas fa-fish"
+                    style="color: var(--accent-teal); margin-right: 0.5rem"
+                  ></i>
+                  Discover Scuba Diving
+                </h3>
+                <div class="price">₹3099</div>
+                <ul class="card-details">
+                  <li><strong>Dives:</strong> 2 (Training + Open Water)</li>
+                  <li>
+                    <strong>Depth:</strong> 6-8 ft (Training) | 40-45 ft (Open
+                    Water)
+                  </li>
+                  <li><strong>Duration:</strong> ~70 mins total</li>
+                  <li><strong>Best For:</strong> First-time divers</li>
+                  <li>✓ Full instructor guidance</li>
+                </ul>
+                <p class="package-highlight">Best Beginner Package!</p>
+                <div class="card-buttons">
+                  <a href="/discover-scuba-details" class="btn btn-secondary"
+                    >Details</a
+                  >
+                  <a href="#book" class="btn">Book Package</a>
+                </div>
+              </div>
+            </div>
+            <div class="packages-mobile-item">
+              <div class="card">
+                <h3>
+                  <i
+                    class="fas fa-tint"
+                    style="color: var(--primary-blue); margin-right: 0.5rem"
+                  ></i>
+                  Average Deep Dive
+                </h3>
+                <div class="price">₹900</div>
+                <ul class="card-details">
+                  <li><strong>Depth:</strong> 18–20 ft</li>
+                  <li><strong>Duration:</strong> 15 mins</li>
+                  <li>
+                    <strong>Best For:</strong> Adventurers with some confidence
+                  </li>
+                  <li>✓ Explore deeper marine life</li>
+                </ul>
+                <div class="card-buttons">
+                  <a href="/average-deep-dive-details" class="btn btn-secondary"
+                    >Details</a
+                  >
+                  <a href="#book" class="btn">Book Package</a>
+                </div>
+              </div>
+            </div>
+            <div class="packages-mobile-item">
+              <div class="card">
+                <h3>
+                  <i
+                    class="fas fa-swimmer"
+                    style="color: var(--gold); margin-right: 0.5rem"
+                  ></i>
+                  Shallow Scuba Dive
+                </h3>
+                <div class="price">₹400</div>
+                <ul class="card-details">
+                  <li><strong>Depth:</strong> 6–8 ft</li>
+                  <li><strong>Duration:</strong> 5-6 mins</li>
+                  <li><strong>Best For:</strong> A quick underwater taste</li>
+                  <li>✓ Guided by instructor</li>
+                </ul>
+                <div class="card-buttons">
+                  <a
+                    href="/shallow-scuba-dive-details"
+                    class="btn btn-secondary"
+                    >Details</a
+                  >
+                  <a href="#book" class="btn">Book Package</a>
+                </div>
+              </div>
+            </div>
+            <div class="packages-mobile-item">
+              <div class="card">
+                <h3>
+                  <i
+                    class="fas fa-ship"
+                    style="color: var(--primary-blue); margin-right: 0.5rem"
+                  ></i>
+                  Watersports Package
+                </h3>
+                <div class="price">₹700</div>
+                <ul class="card-details">
+                  <li>✓ Jet Ski Ride</li>
+                  <li>✓ Banana Ride</li>
+                  <li>✓ Sleeping Bumper Ride</li>
+                  <li>✓ Parasailing</li>
+                </ul>
+                <div class="card-buttons">
+                  <a
+                    href="/watersports-package-details"
+                    class="btn btn-secondary"
+                    >Details</a
+                  >
+                  <a href="#book" class="btn">Book Package</a>
+                </div>
+              </div>
+            </div>
+            <div class="packages-mobile-item">
+              <div class="card">
+                <h3>
+                  <i
+                    class="fas fa-layer-group"
+                    style="color: var(--accent-teal); margin-right: 0.5rem"
+                  ></i>
+                  Combo 1
+                </h3>
+                <p
+                  style="
+                    font-size: 0.9rem;
+                    color: var(--text-medium);
+                    font-weight: bold;
+                  "
+                >
+                  Discover Scuba + Water Sports & Parasailing
+                </p>
+                <div class="price">₹3,499 <span>/ person</span></div>
+                <ul class="card-details">
+                  <li><strong>Discover Scuba:</strong> 2 dives (40-45 ft)</li>
+                  <li>
+                    <strong>Water Sports:</strong> Jet Ski, Banana & Bumper
+                    Rides
+                  </li>
+                  <li><strong>Plus:</strong> Parasailing</li>
+                </ul>
+                <p
+                  style="
+                    font-size: 0.8rem;
+                    font-style: italic;
+                    color: var(--text-light);
+                    padding: 0 0.5rem;
+                  "
+                >
+                  Best for first-timers who want the complete scuba experience
+                  plus surface fun!
+                </p>
+                <a href="#book" class="btn" style="margin-top: auto"
+                  >Book Package</a
+                >
+              </div>
+            </div>
+            <div class="packages-mobile-item">
+              <div class="card">
+                <h3>
+                  <i
+                    class="fas fa-layer-group"
+                    style="color: var(--primary-blue); margin-right: 0.5rem"
+                  ></i>
+                  Combo 2
+                </h3>
+                <p
+                  style="
+                    font-size: 0.9rem;
+                    color: var(--text-medium);
+                    font-weight: bold;
+                  "
+                >
+                  Deep Scuba + Water Sports & Parasailing
+                </p>
+                <div class="price">₹1,499 <span>/ person</span></div>
+                <ul class="card-details">
+                  <li><strong>Deep Scuba Dive:</strong> 18-20 ft</li>
+                  <li>
+                    <strong>Water Sports:</strong> Jet Ski, Banana & Bumper
+                    Rides
+                  </li>
+                  <li><strong>Plus:</strong> Parasailing</li>
+                </ul>
+                <p
+                  style="
+                    font-size: 0.8rem;
+                    font-style: italic;
+                    color: var(--text-light);
+                    padding: 0 0.5rem;
+                  "
+                >
+                  Perfect for adventurers ready to dive deeper and enjoy thrill
+                  rides above water.
+                </p>
+                <a href="#book" class="btn" style="margin-top: auto"
+                  >Book Package</a
+                >
+              </div>
+            </div>
+            <div class="packages-mobile-item">
+              <div class="card">
+                <h3>
+                  <i
+                    class="fas fa-layer-group"
+                    style="color: var(--gold); margin-right: 0.5rem"
+                  ></i>
+                  Combo 3
+                </h3>
+                <p
+                  style="
+                    font-size: 0.9rem;
+                    color: var(--text-medium);
+                    font-weight: bold;
+                  "
+                >
+                  Average Scuba + Water Sports & Parasailing
+                </p>
+                <div class="price">₹999 <span>/ person</span></div>
+                <ul class="card-details">
+                  <li><strong>Average Scuba Dive:</strong> 6-8 ft</li>
+                  <li>
+                    <strong>Water Sports:</strong> Jet Ski, Banana & Bumper
+                    Rides
+                  </li>
+                  <li><strong>Plus:</strong> Parasailing</li>
+                </ul>
+                <p
+                  style="
+                    font-size: 0.8rem;
+                    font-style: italic;
+                    color: var(--text-light);
+                    padding: 0 0.5rem;
+                  "
+                >
+                  Ideal for beginners & families who want a safe, simple scuba
+                  dive with extra fun rides.
+                </p>
+                <a href="#book" class="btn" style="margin-top: auto"
+                  >Book Package</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="packages-nav">
+            <div class="packages-nav-dot active" data-slide="0"></div>
+            <div class="packages-nav-dot" data-slide="1"></div>
+            <div class="packages-nav-dot" data-slide="2"></div>
+            <div class="packages-nav-dot" data-slide="3"></div>
+            <div class="packages-nav-dot" data-slide="4"></div>
+            <div class="packages-nav-dot" data-slide="5"></div>
+            <div class="packages-nav-dot" data-slide="6"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div>
+        <h2>Experience Gallery</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="static/1.jpg"
+              alt="Professional scuba diving instruction"
+            />
+          </div>
+          <div class="gallery-item">
+            <img src="static/2.jpg" alt="Vibrant coral reef ecosystem" />
+          </div>
+          <div class="gallery-item">
+            <img src="static/3.jpg" alt="Water sports and marine activities" />
+          </div>
+          <div class="gallery-item">
+            <img src="static/4.jpg" alt="Diverse marine life encounters" />
+          </div>
+          <div class="gallery-item">
+            <img src="static/5.jpg" alt="Expert diving guidance" />
+          </div>
+          <div class="gallery-item">
+            <img src="static/6.jpg" alt="Group adventure experiences" />
+          </div>
+        </div>
+
+        <div class="gallery-mobile-swiper">
+          <div class="gallery-mobile-container">
+            <div class="gallery-mobile-item">
+              <img
+                src="static/1.jpg"
+                alt="Professional scuba diving instruction"
+              />
+            </div>
+            <div class="gallery-mobile-item">
+              <img src="static/2.jpg" alt="Vibrant coral reef ecosystem" />
+            </div>
+            <div class="gallery-mobile-item">
+              <img
+                src="static/3.jpg"
+                alt="Water sports and marine activities"
+              />
+            </div>
+            <div class="gallery-mobile-item">
+              <img src="static/4.jpg" alt="Diverse marine life encounters" />
+            </div>
+            <div class="gallery-mobile-item">
+              <img src="static/5.jpg" alt="Expert diving guidance" />
+            </div>
+            <div class="gallery-mobile-item">
+              <img src="static/6.jpg" alt="Group adventure experiences" />
+            </div>
+          </div>
+          <div class="gallery-nav">
+            <div class="gallery-nav-dot active" data-slide="0"></div>
+            <div class="gallery-nav-dot" data-slide="1"></div>
+            <div class="gallery-nav-dot" data-slide="2"></div>
+            <div class="gallery-nav-dot" data-slide="3"></div>
+            <div class="gallery-nav-dot" data-slide="4"></div>
+            <div class="gallery-nav-dot" data-slide="5"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div>
+        <h2>Client Testimonials</h2>
+        <div class="review-cards">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+              "An absolutely extraordinary experience! The professionalism and
+              expertise of the Blue Adventures team made my first dive both safe
+              and magical. The underwater world of Malvan exceeded all my
+              expectations."
+            </p>
+            <strong>— Priya Sharma, Mumbai</strong>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+              "Outstanding service from start to finish. The equipment was
+              top-quality, the instructors were knowledgeable and patient, and
+              the dive sites were absolutely breathtaking. Already planning my
+              return visit!"
+            </p>
+            <strong>— Rajesh Kumar, Pune</strong>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+              "Blue Adventures perfectly balances adventure with safety. The
+              comprehensive package and enthusiastic team created memories that
+              will last a lifetime. Highly recommend to anyone seeking marine
+              adventures."
+            </p>
+            <strong>— Anjali Desai, Goa</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="book">
+      <div>
+        <h2>Reserve Your Adventure</h2>
+        <div class="contact-form">
+          <form action="/book" method="POST">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your complete name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email address"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="activity">Select Activity</label>
+              <select id="activity" name="activity" required>
+                <option value="">Choose an activity</option>
+                <option value="Discover Scuba Diving Package">
+                  Discover Scuba Diving Package (₹3,099)
+                </option>
+                <option value="Average Deep Dive">
+                  Average Deep Dive (₹900)
+                </option>
+                <option value="Shallow Scuba Dive">
+                  Shallow Scuba Dive (₹400)
+                </option>
+                <option value="Watersports Package">
+                  Watersports Package (₹700)
+                </option>
+                <option value="Combo 1">Combo 1 (₹3,499)</option>
+                <option value="Combo 2">Combo 2 (₹1,499)</option>
+                <option value="Combo 3">Combo 3 (₹999)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="date">Preferred Date</label>
+              <input type="date" id="date" name="date" required />
+            </div>
+            <div class="form-group">
+              <label for="people">Number of People</label>
+              <input
+                type="number"
+                id="people"
+                name="people"
+                min="1"
+                max="10"
+                placeholder="1"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn"
+              style="width: 100%; margin-top: 1rem"
+            >
+              <i class="fas fa-paper-plane"></i> Submit Booking
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="map-container">
+        <h2>Find Us</h2>
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15456.92324359939!2d73.4503728!3d16.0592966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbf006f155cb475%3A0x47230554598da19!2sMalvan%20Jetty!5e0!3m2!1sen!2sin!4v1695126330000!5m2!1sen!2sin"
+            width="100%"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
+        <div class="map-info">
+          <p>
+            <strong>Address:</strong> Blue Adventures, Malvan Beach,
+            Maharashtra, India - 416606
+          </p>
+          <p><strong>Hours:</strong> Open daily 8:00 AM - 6:00 PM</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="floating-action-buttons">
+      <a
+        href="tel:+919096009955"
+        class="fab-button fab-call"
+        aria-label="Call Now"
+      >
+        <i class="fas fa-phone"></i>
+      </a>
+      <a
+        href="https://wa.me/919096009955"
+        target="_blank"
+        class="fab-button fab-whatsapp"
+        aria-label="Chat on WhatsApp"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetEl = document.querySelector(this.getAttribute("href"));
+            if (targetEl) {
+              targetEl.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById("navbar");
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        const navLinks = document.querySelectorAll(".nav-menu a");
+
+        if (hamburger && navMenu) {
+          hamburger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+          });
+
+          const closeMenu = () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+          };
+
+          navLinks.forEach((link) => link.addEventListener("click", closeMenu));
+
+          document.addEventListener("click", (e) => {
+            if (
+              navMenu.classList.contains("active") &&
+              !navMenu.contains(e.target) &&
+              !hamburger.contains(e.target)
+            ) {
+              closeMenu();
+            }
+          });
+        }
+
+        // Background change on scroll
+        const sections = document.querySelectorAll("section");
+        const backgroundLayers = document.querySelectorAll(".background-layer");
+        let currentSectionIndex = -1;
+
+        const updateBackground = () => {
+          const scrollPosition = window.scrollY + window.innerHeight / 2.5;
+          let newSectionIndex = -1;
+
+          sections.forEach((section, index) => {
+            if (scrollPosition >= section.offsetTop) {
+              newSectionIndex = index;
+            }
+          });
+
+          if (newSectionIndex !== currentSectionIndex) {
+            currentSectionIndex = newSectionIndex;
+            backgroundLayers.forEach((layer, index) => {
+              layer.classList.toggle("active", index === currentSectionIndex);
+            });
+          }
+        };
+
+        window.addEventListener("scroll", updateBackground, { passive: true });
+        updateBackground();
+
+        // Fade in animations
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("fade-in");
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        document
+          .querySelectorAll(
+            ".card, .review-card, .gallery-item, .content-box, .contact-form, .contact-info div"
+          )
+          .forEach((el) => {
+            observer.observe(el);
+          });
+
+        // Review swiper
+        const reviewCards = document.querySelectorAll(".review-card");
+        if (reviewCards.length > 0) {
+          let currentReview = 0;
+          reviewCards[currentReview].classList.add("active");
+          setInterval(() => {
+            reviewCards[currentReview].classList.remove("active");
+            currentReview = (currentReview + 1) % reviewCards.length;
+            reviewCards[currentReview].classList.add("active");
+          }, 5000);
+        }
+
+        // Gallery swiper - Desktop
+        const galleryItems = document.querySelectorAll(".gallery-item");
+        if (galleryItems.length > 0) {
+          let currentGallery = 0;
+          const itemsPerPage = 3;
+          const showNextGalleryItems = () => {
+            galleryItems.forEach((item) => item.classList.remove("active"));
+            for (let i = 0; i < itemsPerPage; i++) {
+              let index = (currentGallery + i) % galleryItems.length;
+              if (galleryItems[index])
+                galleryItems[index].classList.add("active");
+            }
+            currentGallery =
+              (currentGallery + itemsPerPage) % galleryItems.length;
+          };
+          showNextGalleryItems();
+          setInterval(showNextGalleryItems, 5000);
+        }
+
+        // Generic Swiper Logic
+        const setupSwiper = (
+          containerSelector,
+          itemSelector,
+          navDotSelector
+        ) => {
+          const container = document.querySelector(containerSelector);
+          const items = document.querySelectorAll(itemSelector);
+          const navDots = document.querySelectorAll(navDotSelector);
+          if (!container || items.length === 0) return;
+
+          let currentIndex = 0;
+          let startX = 0;
+          let isDragging = false;
+          let intervalId;
+
+          const updateSwiper = () => {
+            container.style.transform = `translateX(-${currentIndex * 100}%)`;
+            if (navDots.length > 0) {
+              navDots.forEach((dot, index) =>
+                dot.classList.toggle("active", index === currentIndex)
+              );
+            }
+          };
+
+          const startAutoPlay = () => {
+            stopAutoPlay();
+            intervalId = setInterval(() => {
+              currentIndex = (currentIndex + 1) % items.length;
+              updateSwiper();
+            }, 5000);
+          };
+
+          const stopAutoPlay = () => clearInterval(intervalId);
+
+          if (navDots.length > 0) {
+            navDots.forEach((dot, index) => {
+              dot.addEventListener("click", () => {
+                currentIndex = index;
+                updateSwiper();
+                startAutoPlay();
+              });
+            });
+          }
+
+          container.addEventListener(
+            "touchstart",
+            (e) => {
+              startX = e.touches[0].clientX;
+              isDragging = true;
+              stopAutoPlay();
+            },
+            { passive: true }
+          );
+
+          container.addEventListener(
+            "touchmove",
+            (e) => {
+              if (!isDragging) return;
+              const currentX = e.touches[0].clientX;
+              const diff = startX - currentX;
+              if (Math.abs(diff) > 50) {
+                currentIndex += Math.sign(diff);
+                currentIndex = Math.max(
+                  0,
+                  Math.min(currentIndex, items.length - 1)
+                );
+                updateSwiper();
+                isDragging = false;
+              }
+            },
+            { passive: true }
+          );
+
+          container.addEventListener("touchend", () => {
+            isDragging = false;
+            startAutoPlay();
+          });
+
+          updateSwiper();
+          startAutoPlay();
+        };
+
+        setupSwiper(
+          ".gallery-mobile-container",
+          ".gallery-mobile-item",
+          ".gallery-nav-dot"
+        );
+        setupSwiper(
+          ".packages-mobile-container",
+          ".packages-mobile-item",
+          ".packages-nav-dot"
+        );
+      });
+    </script>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Blue Adventures</h3>
+          <p>
+            Your premier destination for scuba diving and water sports in
+            Malvan. Experience the ocean's wonders with our certified
+            instructors and premium equipment.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="#home"><i class="fas fa-home"></i> Home</a>
+          <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+          <a href="#packages"><i class="fas fa-gift"></i> Packages</a>
+          <a href="#gallery"><i class="fas fa-images"></i> Gallery</a>
+          <a href="#reviews"><i class="fas fa-star"></i> Reviews</a>
+          <a href="#book"><i class="fas fa-calendar-check"></i> Book</a>
+          <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-map-marker-alt"></i>3F37+RP3, Malvan, Maharashtra
+            <br />India - 416606
+          </p>
+          <p><i class="fas fa-phone"></i> +91 9096009955</p>
+          <p><i class="fas fa-envelope"></i> blueadventures09@gmail.com</p>
+          <p><i class="fas fa-clock"></i> Mon-Sun: 8AM - 6PM</p>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <a
+            href="https://www.facebook.com/share/1GgXzUGax4/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-facebook"></i> Facebook</a
+          >
+          <a
+            href="https://www.instagram.com/blueadventurescuba?igsh=MXgwdWdxcXhzM2NpcQ=="
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-instagram"></i> Instagram</a
+          >
+        </div>
+      </div>
+      <div class="copyright">
+        <p>
+          © 2025 Blue Adventures. All rights reserved. | Designed with
+          InnvoateHive for ocean lovers.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
