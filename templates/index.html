@@ -392,6 +392,49 @@
         border-radius: 2px;
       }
 
+      /* --- NEW STYLES FOR BOXED HEADINGS --- */
+
+      /* Center the containers for the boxed headings */
+      #packages > div,
+      #gallery > div,
+      #reviews > div,
+      #book > div,
+      #contact > .map-container {
+        /* This ensures the inline-block h2 is centered within its parent */
+        text-align: center;
+      }
+
+      /* Style for the new boxed headings */
+      #packages h2,
+      #gallery h2,
+      #reviews h2,
+      #book h2,
+      #contact h2 {
+        display: inline-block; /* Make the box wrap the text */
+        background: #ffffff;
+        padding: 0.75rem 2.5rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-medium);
+        margin-bottom: 3rem; /* Add more space below the heading */
+        font-size: clamp(
+          2.2rem,
+          5vw,
+          3.5rem
+        ); /* Adjust font size for the box */
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      /* Remove the gold line from the boxed headings */
+      #packages h2::after,
+      #gallery h2::after,
+      #reviews h2::after,
+      #book h2::after,
+      #contact h2::after {
+        display: none;
+      }
+
+      /* --- END NEW STYLES --- */
+
       /* Professional card grid */
       .package-cards {
         display: grid;
@@ -1338,6 +1381,7 @@
     </style>
   </head>
   <body>
+    <!-- The rest of the HTML body remains the same -->
     <div class="background-container">
       <div
         class="background-layer"
@@ -2489,7 +2533,13 @@
       <div class="copyright">
         <p>
           © 2025 Blue Adventures. All rights reserved. | Designed with
-          InnvoateHive for ocean lovers.
+          <a
+            href="https://www.innovatehive.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Innovatehive</a
+          >
+          for ocean lovers.
         </p>
       </div>
     </footer>
